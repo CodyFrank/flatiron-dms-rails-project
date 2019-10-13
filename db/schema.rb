@@ -13,11 +13,11 @@
 ActiveRecord::Schema.define(version: 2019_10_13_202020) do
 
   create_table "jobs", force: :cascade do |t|
-    t.integer "repair_order_id"
     t.text "concern"
     t.boolean "completed", default: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "repair_order_id"
   end
 
   create_table "repair_orders", force: :cascade do |t|
