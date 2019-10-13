@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :customers
   resources :employees
   resources :jobs
   resources :repair_orders
