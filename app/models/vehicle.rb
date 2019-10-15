@@ -3,4 +3,8 @@ class Vehicle < ApplicationRecord
     has_many :repair_orders
     has_many :employees, through: :repair_orders
     has_many :jobs, through: :repair_orders
+
+    validates_associated :customer
+    validates :make, :model, :miles, :vin, presence: true
+    validates :vin, length: { is: 17 }
 end
