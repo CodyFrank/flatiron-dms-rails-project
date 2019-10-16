@@ -31,3 +31,11 @@
   <%= f.submit %>
 
 <% end %>
+
+<% if @employee.errors.any? %>
+  <% @employee.errors.full_messages.each do |m| %>
+    <div class="errors">
+      <p><%= m %></p>
+    </div>
+  <% end %>
+<% end %>
