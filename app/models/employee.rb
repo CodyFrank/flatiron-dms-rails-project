@@ -3,6 +3,7 @@ class Employee < ApplicationRecord
     has_many :vehicles, through: :repair_orders
     has_many :jobs, through: :repair_orders
     has_many :customers, through: :repair_orders
+    
     has_secure_password
 
     validates :name, :worker_id, :job_title, presence: true
