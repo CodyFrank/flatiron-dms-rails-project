@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'application#home'
   resources :customers
-  resources :employees
+  resources :employees, except: [:new]
   resources :jobs
   resources :repair_orders
   resources :vehicles
