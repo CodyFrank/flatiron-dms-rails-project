@@ -1,0 +1,34 @@
+<h1>inside the employees/new</h1>
+<%= form_with model: @employee, local: true do |f| %>
+
+<div class="form_box">
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+</div>
+
+<div class="form_box">
+  <%= f.label :worker_id %>
+  <%= f.text_field :worker_id %>
+</div>
+
+<div class="form_box">
+  <%= f.label :job_title %>
+  <%= f.text_field :job_title %>
+</div>
+
+  <%= f.label :admin %>
+  <%= f.check_box :admin %>
+
+<div class="form_box">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+
+<div class="form_box">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+</div>
+
+  <%= f.submit %>
+
+<% end %>
