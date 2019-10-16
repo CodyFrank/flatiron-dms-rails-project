@@ -5,7 +5,13 @@ class EmployeesController < ApplicationController
     end
 
     def create
-        byebug
+        @employee = Employee.new(employee_params)
+        if @employee.save
+            session[:user_id] = @employee.id
+            redirect_to employee_path
+        else
+            render :new
+        end
     end
 
     private
