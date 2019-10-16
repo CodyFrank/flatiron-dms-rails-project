@@ -1,1 +1,3 @@
 - [ ] Finish application home
+- [ ] add login function
+- [ ] add oauth function
