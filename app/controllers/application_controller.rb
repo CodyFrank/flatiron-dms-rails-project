@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
         !! current_user
     end
 
-    def employee_user
-        current.find_by(id: sessions[:user_id])
+    def current_user
+        Employee.find_by(id: session[:user_id])
     end
 end
