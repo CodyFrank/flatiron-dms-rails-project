@@ -5,6 +5,14 @@ class SessionsController < ApplicationController
 
     def create
         @employee = Employee.find_by(worker_number: params[:worker_number])
+        if @employee && @employee.authenticate(params[:password])
+            session[:user_id] = @employee.id
+            flash[:success] = "Welcome #{@employee.name}"
+            redirect_to employee_path
+        else
+            flash[:failed] = "Login Failed"
+            render new
+        end
     end
 
     def destroy
