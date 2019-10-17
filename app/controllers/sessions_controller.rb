@@ -1,10 +1,10 @@
 class SessionsController < ApplicationController
 
     def new
-        @employee = Employee.new
     end
 
     def create
+        @employee = Employee.find_by(worker_number: params[:worker_number])
     end
 
     def destroy
