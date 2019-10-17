@@ -12,6 +12,11 @@
 
   <header>
     <%= navbar %>
+    <div class="errors">
+      <% flash.each do |k, v| %>
+        <p><%= v %></p>
+      <% end %>
+    </div>
   </header>
 
   <body>

@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
             redirect_to employee_path
         else
             flash[:failed] = "Login Failed"
-            render new
+            render :new
         end
     end
 
