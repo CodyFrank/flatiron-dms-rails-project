@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         if @employee && @employee.authenticate(params[:password])
             session[:user_id] = @employee.id
             flash[:success] = "Welcome #{@employee.name}"
-            redirect_to employee_path
+            redirect_to employee_path    
         else
             flash[:failed] = "Login Failed"
             render :new
