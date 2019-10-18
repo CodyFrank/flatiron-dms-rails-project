@@ -7,4 +7,5 @@ class Vehicle < ApplicationRecord
     validates_associated :customer
     validates :make, :model, :miles, :vin, presence: true
     validates :vin, length: { is: 17 }
+    validates :vin, uniqueness: true
 end

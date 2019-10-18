@@ -1,0 +1,13 @@
+<%= form_with model: @repair_order, local: true do |f| %>
+
+<div class="form_box">
+  <%= f.label :vin_number %>
+  <%= f.text_field :vin_number, list: "vin_autocomplete" %>
+  <datalist id="vin_autocomplete">
+    <%= Vehicle.all.each do |veh| %>
+      < option value="<%= veh.vin %>">
+    <% end %>
+  </datalist>
+</div>
+
+<% end %>
