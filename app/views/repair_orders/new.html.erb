@@ -10,4 +10,26 @@
   </datalist>
 </div>
 
+<div class="form_box">
+  <%= f.label :worker_number %>
+  <%= f.number_field :worker_number, list: "worker_number_autocomplete" %>
+  <datalist id="worker_number_autocomplete">
+    <%= Employee.all.each do |emp| %>
+      < option value="<%= emp.worker_number %>">
+    <% end %>
+  </datalist>
+</div>
+
+<div class="form_box">
+  <%= f.label :customer_phone_number %>
+  <%= f.number_field :customer_phone_number, list: "phone_number_autocomplete" %>
+  <datalist id="phone_number_autocomplete">
+    <%= Customer.all.each do |c| %>
+      < option value="<%= c.phone_number %>">
+    <% end %>
+  </datalist>
+</div>
+
+
+<%= f.submit %>
 <% end %>
