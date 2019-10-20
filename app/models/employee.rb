@@ -9,6 +9,6 @@ class Employee < ApplicationRecord
     validates :name, :worker_number, :job_title, presence: true
     validates :worker_number, uniqueness: true
     validates :password, confirmation: true
-    validates :password_confirmation, presence: true
+    validates :password_confirmation, presence: true, on: :create
     validates :worker_number, length: { is: 4 }
 end

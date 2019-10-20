@@ -11,6 +11,6 @@ class Customer < ApplicationRecord
     validates :phone_number, length: {is: 10}
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :password, confirmation: true
-    validates :password_confirmation, presence: true
+    validates :password_confirmation, presence: true, on: :create
     
 end
