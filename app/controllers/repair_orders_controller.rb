@@ -8,7 +8,8 @@ class RepairOrdersController < ApplicationController
         byebug
         @ro = RepairOrder.new
         veh = Vehicle.find_by(vin: repair_order_params[:vin_number])
-        emp = Employee.find_by(worker_number: repair_order_params[:worker_number])
+        emp = Employee.find_by(id: session[:user_id])
+        byebug
         if veh
           cust = veh.customer
         end
