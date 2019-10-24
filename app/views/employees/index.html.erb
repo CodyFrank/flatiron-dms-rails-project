@@ -1,0 +1,7 @@
+<% @employees.each do |emp| %>
+  <div class="employee-box">
+    <h3><%= emp.name %></h3>
+    <%= emp.job_title %>
+    <%= emp.worker_number %>
+  <div>
+<% end %>
