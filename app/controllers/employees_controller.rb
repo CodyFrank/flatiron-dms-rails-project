@@ -18,6 +18,10 @@ class EmployeesController < ApplicationController
         @employee = Employee.find(params[:id])
     end
 
+    def index
+        @employees = Employee.all
+    end
+
     private
 
     def employee_params

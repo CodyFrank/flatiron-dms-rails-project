@@ -1,8 +1,8 @@
 <h3><%= @employee.name %> </h3>
 <% @employee.repair_orders.all.each do |ro| %>
   <% if ro.finished == false %>
-  <div class="ro-box">
-    <%= ro.customer.name %>
-  </div>
+    <div class="ro-box">
+      <%= ro.customer.name %>
+    </div>
   <% end %>
 <% end %>
