@@ -8,10 +8,14 @@ class EmployeesController < ApplicationController
         @employee = Employee.new(employee_params)
         if @employee.save
             session[:user_id] = @employee.id
-            redirect_to employee_path
+            redirect_to employee_path(@employee)
         else
             render :new
         end
+    end
+
+    def show
+        @employee = Employee.find(params[:id])
     end
 
     private
