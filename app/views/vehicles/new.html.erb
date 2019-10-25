@@ -1,0 +1,29 @@
+<%= form_with model: @veh, local: true do |f| %>
+
+<div class="form_box">
+  <%= f.label :make %>
+  <%= f.text_field :make %>
+</div>
+
+<div class="form_box">
+  <%= f.label :model %>
+  <%= f.text_field :model %>
+</div>
+
+<div class="form_box">
+  <%= f.label :miles %>
+  <%= f.number_field :miles %>
+</div>
+
+<div class="form_box">
+  <%= f.label :vin %>
+  <%= f.text_field :vin %>
+</div>
+
+<div class="form_box">
+  <%= f.label :Phone_Number %>
+  <%= f.number_field :phone_number %>
+</div>
+
+<%= f.submit %>
+<% end %>
