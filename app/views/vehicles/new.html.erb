@@ -1,5 +1,4 @@
 <%= form_with model: @veh, local: true do |f| %>
-
 <div class="form_box">
   <%= f.label :make %>
   <%= f.text_field :make %>
@@ -26,4 +25,12 @@
 </div>
 
 <%= f.submit %>
+<% end %>
+
+<% if @veh.errors.any? %>
+  <% @veh.errors.full_messages.each do |m| %>
+    <div class="errors">
+      <p><%= m %></p>
+    </div>
+    <% end %>
 <% end %>

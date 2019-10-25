@@ -4,15 +4,12 @@ class VehiclesController < ApplicationController
     end
 
     def create
-        veh = Vehicle.new(vehicle_params)
-        if cust = Customer.find_by(phone_number: cust_params[:phone_number])
-          veh.customer = cust
-        else
-            render :new
-        end
-        if veh.save
+        @veh = Vehicle.new(vehicle_params)
+        @veh.customer = Customer.find_by(phone_number: cust_params[:phone_number])
+        if @veh.save
           redirect_to customer_path(cust)
         else 
+            byebug
             render :new
         end
     end
