@@ -3,5 +3,6 @@
     <h3><%= emp.name %></h3>
     <%= emp.job_title %>
     <%= emp.worker_number %>
+    <%= link_to "Delete", emp, method: :delete, data: { confirm: "Really?" } %>
   <div>
 <% end %>
