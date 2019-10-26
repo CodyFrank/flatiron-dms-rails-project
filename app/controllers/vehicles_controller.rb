@@ -7,9 +7,8 @@ class VehiclesController < ApplicationController
         @veh = Vehicle.new(vehicle_params)
         @veh.customer = Customer.find_by(phone_number: cust_params[:phone_number])
         if @veh.save
-          redirect_to customer_path(cust)
+          redirect_to customer_path(@veh.customer)
         else 
-            byebug
             render :new
         end
     end
