@@ -1,0 +1,4 @@
+<h3><%= @customer.name %> </h3>
+  <%= @customer.phone_number %>
+  <%= @customer.email %>
+<%= button_to "Delete", @customer, method: :delete, data: { confirm: "Really?" } %>
