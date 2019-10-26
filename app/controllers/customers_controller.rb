@@ -14,7 +14,13 @@ class CustomersController < ApplicationController
     end
 
     def index
-        @customers = Customers.all
+        @customers = Customer.all
+    end
+
+    def destroy
+        @customer = Customer.find(params[:id])
+        @customer.destroy
+        redirect_to customer_path
     end
 
     private
