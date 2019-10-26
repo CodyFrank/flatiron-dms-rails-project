@@ -13,7 +13,13 @@ class VehiclesController < ApplicationController
         end
     end
 
+    def index
+        @vehicles = Vehicle.all
+    end
+
     def destroy
+        byebug
+        Vehicle.find(vehicle_params[:vin]).destroy
     end
 
     private
