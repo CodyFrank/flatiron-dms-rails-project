@@ -13,6 +13,10 @@ class CustomersController < ApplicationController
         end
     end
 
+    def index
+        @customers = Customers.all
+    end
+
     private
 
     def customer_params

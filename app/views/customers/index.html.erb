@@ -1,0 +1,6 @@
+<% @customer.each do |cust| %>
+  <div class="customer-box">
+    <h3><%= cust.name %></h3>
+    <%= button_to "Delete", cust, method: :delete, data: { confirm: "Really?" } %>
+  <div>
+<% end %>
