@@ -6,12 +6,17 @@ class CustomersController < ApplicationController
 
     def create
         @customer = Customer.new(customer_params)
+        if @customer.save
+            reditrect_to customer_path(@customer)
+        else
+            render :new
+        end
     end
 
     private
 
     def customer_params
-        params.require(:customer).permit(:name, :phone_number, :email, :password)
+        params.require(:customer).permit(:name, :phone_number, :email)
     end
 
 end
