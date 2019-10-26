@@ -5,11 +5,9 @@ class RepairOrdersController < ApplicationController
     end
 
     def create
-        byebug
         @ro = RepairOrder.new
         veh = Vehicle.find_by(vin: repair_order_params[:vin_number])
         emp = Employee.find_by(id: session[:user_id])
-        byebug
         if veh
           cust = veh.customer
         end
