@@ -18,8 +18,8 @@ class VehiclesController < ApplicationController
     end
 
     def destroy
-        byebug
-        Vehicle.find(vehicle_params[:vin]).destroy
+        Vehicle.find(params[:id]).destroy
+        redirect_to vehicles_path
     end
 
     private

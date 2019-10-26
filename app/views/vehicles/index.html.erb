@@ -1,0 +1,7 @@
+<% @vehicles.each do |veh| %>
+  <%= veh.make %>
+  <%= veh.model %>
+  <%= veh.miles %>
+  <%= veh.vin %>
+  <%= button_to "Delete", veh, method: :delete, data: { confirm: "Really?" } %>
+  <% end %>
