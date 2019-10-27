@@ -12,8 +12,7 @@ class JobsController < ApplicationController
     end
 
     def create  
-        if job_params[:repair_order_id]
-            @repair_order = RepairOrder.find(job_params[:repair_order_id])
+        if job_params[:repair_order_id] && @repair_order = RepairOrder.find(job_params[:repair_order_id])
             @job = @repair_order.jobs.build(job_params)
             if @job.save
                 redirect_to repair_order_path(@job.repair_order)
@@ -28,8 +27,11 @@ class JobsController < ApplicationController
     end
 
     def update
-        if @job.update(job_params)
-            redirect_to repair_order_path(@job.repair_order)
+        if job_params[:repair_order_id] && @repair_order = RepairOrder.find(job_params[:repair_order_id])
+            if @job = Job.find(params[:id])
+                @job.update(job_params)
+                redirect_to repair_order_path(@job.repair_order)
+            end
         else
             render :edit
         end
