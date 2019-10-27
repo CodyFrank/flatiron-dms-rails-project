@@ -18,5 +18,7 @@ class JobsController < ApplicationController
     private
 
     def job_params
+        params.require(:job).permit(:concern, :completed)
     end
+
 end
