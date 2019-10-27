@@ -1,5 +1,9 @@
 class EmployeesController < ApplicationController
 
+    def repair_orders_index
+        @employee = Employee.find(params[:id])
+    end
+
     def new
         @employee = Employee.new
     end
