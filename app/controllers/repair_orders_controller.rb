@@ -6,15 +6,15 @@ class RepairOrdersController < ApplicationController
     end
 
     def create
-        @ro = RepairOrder.new
+        @repair_order = RepairOrder.new
         veh = Vehicle.find_by(vin: repair_order_params[:vin_number])
         emp = Employee.find_by(id: session[:user_id])
         if veh
           cust = veh.customer
         end
 
-        if @ro.save
-            redirect_to repair_order_path(@ro)
+        if @repair_order.save
+            redirect_to repair_order_path(@repair_order)
         else
             render :new
         end

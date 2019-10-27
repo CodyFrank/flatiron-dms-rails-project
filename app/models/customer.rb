@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
     has_many :repair_orders
-    has_many :vehicles, dependant: :destroy
+    has_many :vehicles, dependent: :destroy
     has_many :jobs, through: :repair_orders
     has_many :employees, through: :repair_orders
 
