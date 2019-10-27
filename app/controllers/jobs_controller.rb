@@ -5,16 +5,16 @@ class JobsController < ApplicationController
     def new
         if params[:repair_order_id]
           @repair_order = RepairOrder.find(params[:repair_order_id])
-          @job = @repair_order.jobs.build
+          @job = @repair_order.jobs.new
         else
           @job = Job.new
         end
     end
 
-    def create
-        if params[:repair_order_id]
-            @repair_order = RepairOrder.find(params [:repair_order_id])
-            @job = @repair_order.jobs.build(jobs_params)
+    def create  
+        if job_params[:repair_order_id]
+            @repair_order = RepairOrder.find(job_params[:repair_order_id])
+            @job = @repair_order.jobs.build(job_params)
             if @job.save
                 redirect_to repair_order_path(@job.repair_order)
             end
@@ -41,7 +41,7 @@ class JobsController < ApplicationController
     private
 
     def job_params
-        params.require(:job).permit(:concern, :completed)
+        params.require(:job).permit(:concern, :completed, :repair_order_id)
     end
 
 end

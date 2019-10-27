@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   resources :jobs
 
   resources :repair_orders do
-    resources :jobs, only: [:new, :create]
+    resources :jobs, only: [:new]
   end
   resources :vehicles
 
