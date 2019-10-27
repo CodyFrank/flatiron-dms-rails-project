@@ -30,6 +30,9 @@ class RepairOrdersController < ApplicationController
 
     def show
         @repair_order = RepairOrder.find(params[:id])
+        @veh = @repair_order.vehicle
+        @cust = @repair_order.vehicle.customer
+        @jobs = @repair_order.jobs
     end
 
     private

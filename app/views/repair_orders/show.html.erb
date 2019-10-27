@@ -1,0 +1,29 @@
+<div>
+  <%= @repair_order.id %>
+</div>
+
+<div>
+  <%= @cust.name %>
+</div>
+
+<div>
+  <%= @veh.make %>
+</div>
+
+<div>
+  <%= @veh.model %>
+</div>
+
+<div>
+  <%= @veh.miles %>
+</div>
+
+<div>
+  <% @jobs.each do |j| %>
+  
+    <%= j.concern %>
+    <%= j.completed? %>
+  
+  <% end %>
+</div>
+
