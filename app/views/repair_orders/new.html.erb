@@ -6,8 +6,7 @@
 </div>
 
   <h3> Jobs </h3>
-<% f.fields_for :jobs, @repair_order.jobs do |jobs_form| %>
-  <h3> Jobs </h3>
+<%= f.fields_for :jobs, @repair_order.jobs do |jobs_form| %>
   <div class="form_box">
     <%= jobs_form.label :concern %>
     <%= jobs_form.text_area :concern %>

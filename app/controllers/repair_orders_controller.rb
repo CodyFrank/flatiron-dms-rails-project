@@ -2,6 +2,7 @@ class RepairOrdersController < ApplicationController
 
     def new
         @repair_order = RepairOrder.new
+        2.times { @repair_order.jobs.build }
     end
 
     def create
@@ -22,7 +23,10 @@ class RepairOrdersController < ApplicationController
     private
 
     def repair_order_params
-        params.require(:repair_order).permit(:vin_number, :worker_number)
+        params.require(:repair_order).permit(:vin_number, :worker_number, job_attributes:[
+            :concern, 
+            :completed
+        ])
 
     end
 end
