@@ -1,5 +1,8 @@
-<% @repair_orders.each do |ro| %>
-  <%= ro.id %>
-  <%= ro.vehicle.customer.name %>
-  <%= "#{ro.vehicle.make} - #{ro.vehicle.model}" %>
-<% end %>
+
+  <% @repair_orders.each do |ro| %>
+  <div>
+    <%= ro.id %>
+    <%= ro.vehicle.customer.name %>
+    <%= "#{ro.vehicle.make} - #{ro.vehicle.model}" %>
+    </div>
+  <% end %>
