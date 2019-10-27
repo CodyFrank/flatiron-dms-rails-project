@@ -21,7 +21,15 @@ class RepairOrdersController < ApplicationController
     end
 
     def index
-        @repair_orders = RepairOrder.all
+        if params[:employee_id]
+            @repair_orders = Employee.find(params[:employee_id]).repair_orders
+        else
+          @repair_orders = RepairOrder.all
+        end
+    end
+
+    def show
+        @repair_order = RepairOrder.find(params[:id])
     end
 
     private
