@@ -1,6 +1,6 @@
 class RepairOrdersController < ApplicationController
 
-    before_action :authenticate except: [:index]
+    before_action :authenticate, except: [:index]
 
     def new
         @repair_order = RepairOrder.new
@@ -10,9 +10,10 @@ class RepairOrdersController < ApplicationController
     def create
         @repair_order = RepairOrder.new
         veh = Vehicle.find_by(vin: repair_order_params[:vin_number])
-        emp = Employee.find_by(id: session[:user_id])
+        emp = current_user
         if veh
-          cust = veh.customer
+          @repair_order.customer = veh.customer
+          redirect_to repair_order_path(@repair_order)
         end
 
         if @repair_order.save
