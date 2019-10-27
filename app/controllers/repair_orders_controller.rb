@@ -23,7 +23,7 @@ class RepairOrdersController < ApplicationController
     private
 
     def repair_order_params
-        params.require(:repair_order).permit(:vin_number, :worker_number, job_attributes:[
+        params.require(:repair_order).permit(:vin_number, :worker_number, jobs_attributes:[
             :concern, 
             :completed
         ])
