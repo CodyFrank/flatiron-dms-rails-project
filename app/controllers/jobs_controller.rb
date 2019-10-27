@@ -3,11 +3,22 @@ class JobsController < ApplicationController
     before_action :authenticate 
 
     def new
-        @job = Job.new
+        if params[:repair_order_id]
+          @repair_order = RepairOrder.find(params[:repair_order_id])
+          @job = @repair_order.jobs.build
+        else
+          @job = Job.new
+        end
     end
 
     def create
-        @job.new(job_params)
+        if params[:repair_order_id]
+            @repair_order = RepairOrder.find(params [:repair_order_id])
+            @job = @repair_order.jobs.build(jobs_params)
+        else
+          @job = Job.new(job_params)
+        end
+
         if @job.save
             redirect_to repair_order_path(@job.repair_order)
         else

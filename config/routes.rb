@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :repair_orders, only: [:show, :index]
   end
   resources :jobs
+
   resources :repair_orders do
     resources :jobs, only: [:new, :create]
   end

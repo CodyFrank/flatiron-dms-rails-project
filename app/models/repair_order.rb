@@ -6,6 +6,4 @@ class RepairOrder < ApplicationRecord
 
     validates_associated :employee, :vehicle, :customer
 
-    accepts_nested_attributes_for :jobs
-
 end

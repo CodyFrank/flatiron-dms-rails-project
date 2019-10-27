@@ -9,15 +9,14 @@ class RepairOrdersController < ApplicationController
 
     def create
         @repair_order = RepairOrder.new
-        veh = Vehicle.find_by(vin: repair_order_params[:vin_number])
-        emp = current_user
-        if veh
-          @repair_order.customer = veh.customer
-          redirect_to repair_order_path(@repair_order)
+        @repair_order.vehicle = Vehicle.find_by(vin: repair_order_params[:vin_number])
+        @repair_order.employee = current_user
+        if @repair_order.vehicle
+          @repair_order.customer = @repair_order.vehicle.customer
         end
 
         if @repair_order.save
-            redirect_to repair_order_path(@repair_order)
+            redirect_to new_repair_order_job_path(@repair_order)
         else
             render :new
         end

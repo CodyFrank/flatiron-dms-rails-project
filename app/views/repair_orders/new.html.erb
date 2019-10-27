@@ -5,19 +5,6 @@
   <%= f.text_field :vin_number %>
 </div>
 
-  <h3> Jobs </h3>
-<%= f.fields_for :jobs, @repair_order.jobs do |jobs_form| %>
-  <div class="form_box">
-    <%= jobs_form.label :concern %>
-    <%= jobs_form.text_area :concern %>
-  </div>
-  
-  <div class="form_box">
-    <%= jobs_form.label :fixed %>
-    <%= jobs_form.check_box :completed %>
-  </div>
-
-<% end %>
 
 
 <%= f.submit %>
