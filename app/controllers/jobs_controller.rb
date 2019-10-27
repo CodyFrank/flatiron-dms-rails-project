@@ -1,9 +1,11 @@
 class JobsController < ApplicationController
 
     def new
+        @job = Job.new
     end
 
     def create
+        @job.new(job_params)
     end
 
     def edit

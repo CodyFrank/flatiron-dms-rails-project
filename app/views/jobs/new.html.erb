@@ -1,0 +1,23 @@
+<%= form_with model: @job, local: true do |f| %>
+
+<div class="form_box">
+  <%= f.label :concern %>
+  <%= f.text_box :concern %>
+</div>
+
+<div class="form_box">
+  <%= f.label :completed %>
+  <%= f.check_box :admin %>
+</div>
+
+  <%= f.submit %>
+
+<% end %>
+
+<% if @job.errors.any? %>
+  <% @job.errors.full_messages.each do |m| %>
+    <div class="errors">
+      <p><%= m %></p>
+    </div>
+  <% end %>
+<% end %>
