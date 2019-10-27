@@ -1,4 +1,6 @@
 class EmployeesController < ApplicationController
+    
+    before_action :authenticate 
 
 
     def new

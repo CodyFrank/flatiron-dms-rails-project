@@ -1,5 +1,7 @@
 class RepairOrdersController < ApplicationController
 
+    before_action :authenticate except: [:index]
+
     def new
         @repair_order = RepairOrder.new
         2.times { @repair_order.jobs.build }
