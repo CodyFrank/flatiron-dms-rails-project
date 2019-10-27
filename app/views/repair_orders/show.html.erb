@@ -1,29 +1,31 @@
 <div>
-  <%= @repair_order.id %>
+  <p>Repair Order number <%= @repair_order.id %> </p>
 </div>
 
 <div>
-  <%= @cust.name %>
+  <p>Customer: <%= @cust.name %> </p>
 </div>
 
-<div>
-  <%= @veh.make %>
-</div>
-
-<div>
-  <%= @veh.model %>
-</div>
-
-<div>
-  <%= @veh.miles %>
+<div><h3> Vehicle info </h3>
+  <div>
+    <p> Vehicle Make:<%= @veh.make %></p>
+  </div>
+  
+  <div>
+    <p> Vehicle Model: <%= @veh.model %></p>
+  </div>
+  
+  <div>
+    <p> Vehicle Miles: <%= @veh.miles %></p>
+  </div>
 </div>
 
 <div>
   <% @jobs.each do |j| %>
-  
-    <%= j.concern %>
-    <%= j.completed? %>
-  
+    <div> <h3> Jobs </h3>
+      <p> Concern: <%= j.concern %></p>
+      <p> Complete? <%= j.completed? %> </p>
+    </div>
   <% end %>
 </div>
 
