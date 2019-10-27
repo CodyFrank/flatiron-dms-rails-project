@@ -2,6 +2,6 @@
   <div class="customer-box">
     <h3><%= cust.name %></h3>
     <%= button_to "Delete", cust, method: :delete, data: { confirm: "Really?" } %>
-    <%= button_to "Edit", @customer, method: :patch %>
+    <%= link_to "Edit", edit_customer_path(cust), method: :get %>
   <div>
 <% end %>
