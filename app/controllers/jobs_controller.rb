@@ -15,12 +15,9 @@ class JobsController < ApplicationController
         if params[:repair_order_id]
             @repair_order = RepairOrder.find(params [:repair_order_id])
             @job = @repair_order.jobs.build(jobs_params)
-        else
-          @job = Job.new(job_params)
-        end
-
-        if @job.save
-            redirect_to repair_order_path(@job.repair_order)
+            if @job.save
+                redirect_to repair_order_path(@job.repair_order)
+            end
         else
             render :new
         end

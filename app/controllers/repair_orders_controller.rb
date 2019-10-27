@@ -37,6 +37,11 @@ class RepairOrdersController < ApplicationController
         @jobs = @repair_order.jobs
     end
 
+    def destroy
+        @repair_order = RepairOrder.find(params[:id]).delete
+        redirect_to repair_orders_path
+    end
+
     private
 
     def repair_order_params
