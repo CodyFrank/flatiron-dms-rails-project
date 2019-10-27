@@ -11,4 +11,13 @@ class Employee < ApplicationRecord
     validates :password, confirmation: true
     validates :password_confirmation, presence: true, on: :create
     validates :worker_number, length: { is: 4 }
+
+    def self.from_omniauth(auth)
+        # Creates a new user only if it doesn't exist
+        where(email: auth.info.email).first_or_initialize do |emp|
+          emp.name = auth.info.name
+          emp.email = auth.info.email
+      end
+    end
+
 end
