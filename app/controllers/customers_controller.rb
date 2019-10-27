@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+    before_action :authenticate
 
     def new
         @customer = Customer.new

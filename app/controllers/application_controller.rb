@@ -15,4 +15,8 @@ class ApplicationController < ActionController::Base
     def current_user
         Employee.find_by(id: session[:user_id])
     end
+
+    def authenticate
+        redirect_to login_path if !logged_in?
+    end
 end
