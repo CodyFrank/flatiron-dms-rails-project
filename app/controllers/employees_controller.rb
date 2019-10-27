@@ -2,6 +2,8 @@ class EmployeesController < ApplicationController
 
     def repair_orders_index
         @employee = Employee.find(params[:id])
+        @repair_orders = @employee.repair_orders
+        render template: 'repair_orders/index'
     end
 
     def new

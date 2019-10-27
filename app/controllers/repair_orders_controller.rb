@@ -20,6 +20,10 @@ class RepairOrdersController < ApplicationController
         end
     end
 
+    def index
+        @repair_orders = RepairOrder.all
+    end
+
     private
 
     def repair_order_params
