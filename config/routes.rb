@@ -4,11 +4,11 @@ Rails.application.routes.draw do
   resources :employees, except: [:new, :create, :destroy] do
     resources :repair_orders, only: [:show, :index]
   end
-  resources :jobs
+  resources :jobs, except: [:new, :edit]
   resources :repair_orders do
     resources :jobs, only: [:new, :edit]
   end
-  resources :vehicles
+  resources :vehicles, except: [:show, :edit, :update]
 
   get '/signup' => 'employees#new', as: 'signup'
 
