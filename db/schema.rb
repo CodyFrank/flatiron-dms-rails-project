@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_27_232223) do
+ActiveRecord::Schema.define(version: 2019_10_28_012415) do
 
   create_table "customers", force: :cascade do |t|
     t.string "name"
@@ -18,6 +18,9 @@ ActiveRecord::Schema.define(version: 2019_10_27_232223) do
     t.string "email"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "google_token"
+    t.string "google_refresh_token"
+    t.string "password_digest"
   end
 
   create_table "employees", force: :cascade do |t|
@@ -28,8 +31,6 @@ ActiveRecord::Schema.define(version: 2019_10_27_232223) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.string "worker_number"
-    t.string "google_token"
-    t.string "google_refresh_token"
   end
 
   create_table "jobs", force: :cascade do |t|
