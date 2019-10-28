@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
     
     before_action :check_logged_in
+    before_action :check_employee
     before_action :get_employee, except: [:new, :create, :index]
 
 
@@ -48,7 +49,12 @@ class EmployeesController < ApplicationController
     end
 
     def get_employee
-        @employee = Employee.find(params[:id])
-    end
+        if @employee = Employee.find_by(id: params[:id])
+           return @employee
+        else
+           flash[:errors] = "That employee does not work here"
+           redirect_to employees_path
+        end
+     end
 
 end
