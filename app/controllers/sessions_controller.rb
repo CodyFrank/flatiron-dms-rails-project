@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     def create
         @customer = Customer.find_by(email: params[:email])
         if @customer && @customer.authenticate(params[:password])
-            log_in(@customer)   
+            log_in(@customer)
+            redirect_to customer_path(@customer)  
         else
             flash[:failed] = "Login Failed"
             render :new
