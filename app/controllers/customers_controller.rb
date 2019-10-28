@@ -49,7 +49,12 @@ class CustomersController < ApplicationController
     end
 
     def get_customer
-        @customer = Customer.find(params[:id])
+       if @customer = Customer.find_by(id: params[:id])
+          return @customer
+       else
+          flash[:errors] = "That customer does not exist"
+          redirect_to customers_path
+       end
     end
 
     def verify_customer?
