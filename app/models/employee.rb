@@ -13,11 +13,11 @@ class Employee < ApplicationRecord
     validates :worker_number, length: { is: 4 }
 
     def self.from_omniauth(auth)
-        # Creates a new user only if it doesn't exist
-        where(email: auth.info.email).first_or_initialize do |emp|
-          emp.name = auth.info.name
-          emp.email = auth.info.email
-      end
+      refresh_token = auth.credentials.refresh_token
+      employee = Employee.find_by(email: auth.info.email)
+          employee.google_uid = auth.credentials.token
+          employee.google_refresh_token = refresh_token if refresh_token.present?
+          employee
     end
 
 end

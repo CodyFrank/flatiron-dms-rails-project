@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
 
 
     validates :name, presence: true
-    validates :email, :phone_number, uniqueness: true
-    validates :phone_number, length: {is: 10}
+    validates :email, :phone_number, uniqueness: true, allow_blank: true
+    validates :phone_number, length: {is: 10}, allow_blank: true
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 end
