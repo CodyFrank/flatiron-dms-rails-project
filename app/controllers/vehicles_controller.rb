@@ -1,5 +1,5 @@
 class VehiclesController < ApplicationController
-    before_action :authenticate 
+    before_action :check_logged_in
     def new
         @veh = Vehicle.new
     end

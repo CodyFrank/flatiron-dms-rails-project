@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-    before_action :authenticate, except: [:new, :create]
+    before_action :check_logged_in, except: [:new, :create]
     before_action :get_customer, except: [:new, :index, :create]
     
     def new
