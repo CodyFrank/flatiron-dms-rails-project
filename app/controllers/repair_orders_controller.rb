@@ -1,6 +1,6 @@
 class RepairOrdersController < ApplicationController
 
-    before_action :authenticate, except: [:index]
+    before_action :check_logged_in, except: [:index]
 
     def new
         @repair_order = RepairOrder.new

@@ -1,6 +1,6 @@
 class EmployeesController < ApplicationController
     
-    before_action :authenticate
+    before_action :check_logged_in
     before_action :get_employee, except: [:new, :create, :index]
 
 

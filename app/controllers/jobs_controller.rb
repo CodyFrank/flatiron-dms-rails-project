@@ -1,7 +1,6 @@
 class JobsController < ApplicationController
 
-    before_action :authenticate 
-
+    before_action :check_logged_in
     def new
         if params[:repair_order_id]
           @repair_order = RepairOrder.find(params[:repair_order_id])
