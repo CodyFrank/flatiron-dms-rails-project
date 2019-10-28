@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :employees do
     resources :repair_orders, only: [:show, :index]
   end
-  resources :jobs, except: [:new, :edit]
+  resources :jobs, except: [:new, :edit, :index, :show]
   resources :repair_orders do
     resources :jobs, only: [:new, :edit]
   end

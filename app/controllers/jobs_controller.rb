@@ -25,7 +25,7 @@ class JobsController < ApplicationController
     end
 
     def edit
-        @job = Job.find(params[:id])
+        @job = Job.find_by(id: params[:id])
     end
 
     def update
@@ -40,6 +40,7 @@ class JobsController < ApplicationController
     end
 
     def destroy
+        @job = Job.find(params[:id]).destroy
     end
 
     private
