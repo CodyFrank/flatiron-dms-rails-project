@@ -17,8 +17,8 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
   get '/auth/facebook/callback' => 'sessions#facebook_create'
 
-  get '/employee/login' => 'sessions#new_employee', as: 'login'
-  post '/employee/login' => 'sessions#create_employee'
+  get '/login/employee' => 'sessions#new_employee', as: 'login_employee'
+  post '/login/employee' => 'sessions#create_employee'
 
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

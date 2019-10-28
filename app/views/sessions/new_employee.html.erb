@@ -1,0 +1,14 @@
+<%= form_tag("/login/employee") do %>
+
+  <div class="form_box">
+    <%= label_tag :worker_number %>
+    <%= text_field_tag :worker_number %>
+  </div>
+
+  <div class="form_box">
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+  </div>
+
+  <%= submit_tag "Login" %>
+<% end %>

@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    helper_method :logged_in?
 
     def home
     end
@@ -13,7 +14,6 @@ class ApplicationController < ActionController::Base
     def log_in(customer)
         session[:user_id] = customer.id
         flash[:success] = "Welcome #{customer.name}"
-        redirect_to customer_path(customer)
     end
 
     def current_user
