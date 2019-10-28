@@ -25,4 +25,10 @@ class ApplicationController < ActionController::Base
     def check_logged_in
         redirect_to login_path if !logged_in?
     end
+
+    def check_employee(user)
+        if user.worker_number = nil
+            flash[:error] = "You must be an employee to do that"
+            redirect_to customer_path(user)
+    end
 end
