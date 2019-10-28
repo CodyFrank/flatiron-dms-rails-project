@@ -2,6 +2,11 @@
   <p>Repair Order number <%= @repair_order.id %> </p>
 </div>
 
+    <% if employee? %>
+      <%= button_to "Delete", @repair_order, method: :delete, data: { confirm: "Really?" } %>
+      <%= link_to "Edit", edit_repair_order_path(@repair_order) %>
+    <% end %>
+
 <div>
   <p>Customer: <%= @cust.name %> </p>
 </div>

@@ -1,7 +1,7 @@
 
   <% @repair_orders.each do |ro| %>
   <div>
-    <%= ro.id %>
+    <%= link_to "#{ro.id}", repair_order_path(ro) %>
     <%= ro.vehicle.customer.name %>
     <%= "#{ro.vehicle.make} - #{ro.vehicle.model}" %>
     <% if employee? %>
