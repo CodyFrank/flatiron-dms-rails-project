@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-    before_action :check_logged_in, except: [:new, :create]
+    before_action :check_logged_in, except: [:new, :index, :create]
     before_action :get_customer, except: [:new, :index, :create]
     
     def new
@@ -21,7 +21,9 @@ class CustomersController < ApplicationController
     end
 
     def show
-       
+        if !verify_customer?
+            redirect_to customers_path
+        end
     end
 
     def edit
@@ -52,6 +54,14 @@ class CustomersController < ApplicationController
 
     def get_customer
         @customer = Customer.find(params[:id])
+    end
+
+    def verify_customer?
+        if current_user.worker_number == nil
+            @customer == current_user
+        else
+            return true
+        end
     end
 
 end

@@ -13,5 +13,13 @@ class Customer < ApplicationRecord
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
     validates :password_confirmation, presence: true, on: :create
 
+    def initialize(worker_number)
+        @worker_number = nil
+    end
+
+    def worker_number
+        @worker_number
+    end
+
 
 end

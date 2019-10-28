@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     end
 
     def check_employee
-        if current_user.worker_number = nil
+        if current_user.worker_number == nil
             flash[:error] = "You must be an employee to do that"
             redirect_to customer_path(current_user)
         end
