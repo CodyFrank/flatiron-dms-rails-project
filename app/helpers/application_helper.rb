@@ -1,7 +1,11 @@
 module ApplicationHelper
 
+    def employee?
+        current_user.worker_number != nil
+    end
+
     def navbar
-        if logged_in? && current_user.worker_number != nil
+        if logged_in? && employee?
             render "layouts/logged_in_employee_navebar"
         elsif logged_in?
             render "layouts/logged_in_navbar"

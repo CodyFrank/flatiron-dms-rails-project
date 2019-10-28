@@ -3,5 +3,7 @@
   <%= veh.model %>
   <%= veh.miles %>
   <%= veh.vin %>
-  <%= button_to "Delete", veh, method: :delete, data: { confirm: "Really?" } %>
+  <% if employee? %>
+    <%= button_to "Delete", veh, method: :delete, data: { confirm: "Really?" } %>
   <% end %>
+<% end %>
