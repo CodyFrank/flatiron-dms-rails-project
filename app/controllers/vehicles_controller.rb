@@ -1,5 +1,6 @@
 class VehiclesController < ApplicationController
     before_action :check_logged_in
+    before_action :check_employee
     def new
         @veh = Vehicle.new
     end
