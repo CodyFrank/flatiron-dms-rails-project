@@ -1,6 +1,4 @@
 class ApplicationController < ActionController::Base
-    helper_method :logged_in?
-    helper_method :current_user
 
     def home
     end
@@ -30,5 +28,6 @@ class ApplicationController < ActionController::Base
         if user.worker_number = nil
             flash[:error] = "You must be an employee to do that"
             redirect_to customer_path(user)
+        end
     end
 end
