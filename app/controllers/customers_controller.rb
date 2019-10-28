@@ -1,5 +1,5 @@
 class CustomersController < ApplicationController
-    before_action :authenticate 
+    before_action :authenticate, except: [:new, :create]
     
     def new
         @customer = Customer.new
@@ -8,6 +8,7 @@ class CustomersController < ApplicationController
     def create
         @customer = Customer.new(customer_params)
         if @customer.save
+            log_in(@customer)
             redirect_to customer_path(@customer)
         else
             render :new
@@ -45,7 +46,7 @@ class CustomersController < ApplicationController
     private
 
     def customer_params
-        params.require(:customer).permit(:name, :phone_number, :email)
+        params.require(:customer).permit(:name, :phone_number, :email, :password, :password_confirmation)
     end
 
 end

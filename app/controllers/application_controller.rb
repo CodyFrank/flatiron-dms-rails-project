@@ -12,14 +12,14 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
 
-    def log_in(employee)
-        session[:user_id] = employee.id
-        flash[:success] = "Welcome #{employee.name}"
-        redirect_to employee_path(employee)
+    def log_in(customer)
+        session[:user_id] = customer.id
+        flash[:success] = "Welcome #{customer.name}"
+        redirect_to customer_path(customer)
     end
 
     def current_user
-        Employee.find_by(id: session[:user_id])
+        Customer.find_by(id: session[:user_id])
     end
 
     def authenticate

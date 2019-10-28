@@ -15,6 +15,16 @@
   <%= f.text_field :email %>
 </div>
 
+<div class="form_box">
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</div>
+
+<div class="form_box">
+  <%= f.label :password_confirmation %>
+  <%= f.password_field :password_confirmation %>
+</div>
+
   <%= f.submit %>
 
 <% end %>

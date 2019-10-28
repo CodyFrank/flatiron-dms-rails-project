@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
     end
 
     def create
-        @employee = Employee.find_by(worker_number: params[:worker_number])
-        if @employee && @employee.authenticate(params[:password])
-            log_in(@employee)   
+        @customer = Customer.find_by(id: params[:customer_id])
+        if @customer && @customer.authenticate(params[:password])
+            log_in(@customer)   
         else
             flash[:failed] = "Login Failed"
             render :new
