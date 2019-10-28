@@ -57,7 +57,7 @@ gem "bcrypt", "~> 3.1"
 
 gem 'omniauth'
 
-
+gem 'omniauth-facebook'
 
 gem 'dotenv-rails'
 

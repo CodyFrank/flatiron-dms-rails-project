@@ -22,4 +22,21 @@ class SessionsController < ApplicationController
         end
     end
 
+    def facebook_create
+        @customer = Customer.find_or_create_by(uid: auth['uid']) do |u|
+          u.name = auth['info']['name']
+          u.email = auth['info']['email']
+        end
+     
+        session[:user_id] = @customer.id
+     
+        redirect_to customer_path(@customer)
+      end
+
+    private
+
+    def auth
+        request.env['omniauth.auth']
+      end
+
 end

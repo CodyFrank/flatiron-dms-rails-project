@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
         Customer.find_by(id: session[:user_id])
     end
 
-    def authenticate
+    def check_logged_in
         redirect_to login_path if !logged_in?
     end
 end

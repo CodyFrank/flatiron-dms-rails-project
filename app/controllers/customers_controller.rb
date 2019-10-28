@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
     before_action :authenticate, except: [:new, :create]
+    before_action :get_customer, except: [:new, :index, :create]
     
     def new
         @customer = Customer.new
@@ -20,15 +21,15 @@ class CustomersController < ApplicationController
     end
 
     def show
-        @customer = Customer.find(params[:id])
+       
     end
 
     def edit
-        @customer = Customer.find(params[:id])
+      
     end
 
     def update
-        @customer = Customer.find(params[:id])
+        
         if @customer.update(customer_params)
             redirect_to customer_path(@customer)
         else
@@ -37,7 +38,7 @@ class CustomersController < ApplicationController
     end
 
     def destroy
-        if @customer = Customer.find(params[:id])
+        if @customer
           @customer.destroy
           redirect_to customers_path
         end
@@ -47,6 +48,10 @@ class CustomersController < ApplicationController
 
     def customer_params
         params.require(:customer).permit(:name, :phone_number, :email, :password, :password_confirmation)
+    end
+
+    def get_customer
+        @customer = Customer.find(params[:id])
     end
 
 end

@@ -46,4 +46,5 @@ class JobsController < ApplicationController
         params.require(:job).permit(:concern, :completed, :repair_order_id)
     end
 
+
 end

@@ -1,6 +1,7 @@
 class EmployeesController < ApplicationController
     
-    before_action :authenticate 
+    before_action :authenticate
+    before_action :get_employee, except: [:new, :create, :index]
 
 
     def new
@@ -17,7 +18,6 @@ class EmployeesController < ApplicationController
     end
 
     def show
-        @employee = Employee.find(params[:id])
     end
 
     def index
@@ -25,11 +25,10 @@ class EmployeesController < ApplicationController
     end
 
     def edit
-        @employee = Employee.find(params[:id])
+
     end
 
     def update
-        @employee = Employee.find(params[:id])
         if @employee.update(employee_params)
             redirect_to employee_path(@employee)
         else
@@ -38,7 +37,6 @@ class EmployeesController < ApplicationController
     end
 
     def destroy
-        @employee = Employee.find(params[:id])
         @employee.destroy
         redirect_to employees_path
     end
@@ -47,6 +45,10 @@ class EmployeesController < ApplicationController
 
     def employee_params
         params.require(:employee).permit(:name, :worker_number, :job_title, :password, :password_confirmation, :admin)
+    end
+
+    def get_employee
+        @employee = Employee.find(params[:id])
     end
 
 end
