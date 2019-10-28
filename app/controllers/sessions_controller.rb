@@ -22,10 +22,4 @@ class SessionsController < ApplicationController
         end
     end
 
-    def googleAuth
-        # Get access tokens from the google server
-        access_token = request.env["omniauth.auth"]
-        employee = Employee.from_omniauth(access_token)
-        log_in(employee)
-      end
 end

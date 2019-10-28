@@ -12,12 +12,5 @@ class Employee < ApplicationRecord
     validates :password_confirmation, presence: true, on: :create
     validates :worker_number, length: { is: 4 }
 
-    def self.from_omniauth(auth)
-      refresh_token = auth.credentials.refresh_token
-      employee = Employee.find_by(email: auth.info.email)
-          employee.google_uid = auth.credentials.token
-          employee.google_refresh_token = refresh_token if refresh_token.present?
-          employee
-    end
 
 end
