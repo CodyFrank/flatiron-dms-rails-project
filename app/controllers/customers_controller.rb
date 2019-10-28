@@ -1,7 +1,7 @@
 class CustomersController < ApplicationController
     before_action :check_logged_in, except: [:new, :index, :create]
     before_action :get_customer, except: [:new, :index, :create]
-    
+    before_action :invalid_customer, except: [:new, :index, :create]
     def new
         @customer = Customer.new
     end
@@ -21,17 +21,13 @@ class CustomersController < ApplicationController
     end
 
     def show
-        if !verify_customer?
-            redirect_to customers_path
-        end
     end
 
     def edit
-      
+
     end
 
-    def update
-        
+    def update 
         if @customer.update(customer_params)
             redirect_to customer_path(@customer)
         else
@@ -61,6 +57,13 @@ class CustomersController < ApplicationController
             @customer == current_user
         else
             return true
+        end
+    end
+
+    def invalid_customer
+        if !verify_customer?
+            flash[:errors] = "That is not yours!"
+            redirect_to customers_path
         end
     end
 
