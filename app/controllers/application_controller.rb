@@ -17,11 +17,11 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-        Customer.find_by(id: session[:user_id])
+        Customer.find_by(id: session[:user_id]) || Employee.find_by(id: session[:user_id])
     end
 
     def check_logged_in
-        redirect_to login_path if !logged_in?
+        redirect_to root if !logged_in?
     end
 
     def check_employee(user)
