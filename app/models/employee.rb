@@ -12,5 +12,7 @@ class Employee < ApplicationRecord
     validates :password_confirmation, presence: true, on: :create
     validates :worker_number, length: { is: 4 }
 
+    scope :administrators, -> { where(admin: true) }
+
 
 end

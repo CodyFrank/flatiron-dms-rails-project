@@ -24,6 +24,7 @@ class EmployeesController < ApplicationController
     end
 
     def index
+        @administrators = Employee.administrators
         @employees = Employee.all
     end
 

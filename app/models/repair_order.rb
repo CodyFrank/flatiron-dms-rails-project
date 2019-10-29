@@ -6,6 +6,6 @@ class RepairOrder < ApplicationRecord
 
     validates_associated :employee, :vehicle, :customer
 
-    scope :incomplete, -> { where(finished: false) }
+    
 
 end
