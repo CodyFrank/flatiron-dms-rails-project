@@ -63,4 +63,5 @@ gem 'dotenv-rails'
 
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
 
+gem 'thin'
 
