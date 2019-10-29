@@ -8,18 +8,11 @@ class Customer < ApplicationRecord
 
 
     validates :name, presence: true
-    validates :email, :phone_number, uniqueness: true, allow_blank: true
+    validates :email, :phone_number, uniqueness: true
     validates :phone_number, length: {is: 10}, allow_blank: true
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+    validates :password, confirmation: true
     validates :password_confirmation, presence: true, on: :create
-
-    def initialize(worker_number)
-        @worker_number = nil
-    end
-
-    def worker_number
-        @worker_number
-    end
 
 
 end

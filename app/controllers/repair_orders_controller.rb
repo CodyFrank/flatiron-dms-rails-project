@@ -15,10 +15,11 @@ class RepairOrdersController < ApplicationController
         if @repair_order.vehicle
           @repair_order.customer = @repair_order.vehicle.customer
         end
-
+        byebug
         if @repair_order.save
             redirect_to new_repair_order_job_path(@repair_order)
         else
+            flash[:error] = "#{@repair_order.errors.full_messages}"
             render :new
         end
     end
@@ -27,7 +28,7 @@ class RepairOrdersController < ApplicationController
         if params[:employee_id]
             @repair_orders = Employee.find(params[:employee_id]).repair_orders
         else
-          @repair_orders = RepairOrder.all
+          @repair_orders = RepairOrder.incomplete
         end
     end
 
