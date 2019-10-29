@@ -12,9 +12,9 @@ class ApplicationController < ActionController::Base
         !!current_user
     end
 
-    def log_in(customer)
-        session[:user_id] = customer.id
-        flash[:success] = "Welcome #{customer.name}"
+    def log_in(user)
+        session[:user_id] = user.id
+        flash[:success] = "Welcome #{user.name}"
     end
 
     def current_user
