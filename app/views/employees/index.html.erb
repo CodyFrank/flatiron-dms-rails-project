@@ -1,4 +1,9 @@
-<% @administrators.each do |emp| %>
+<% @administrators.each do |admin| %>
+    <%= admin.job_title %>
+    <%= admin.worker_number %>
+<% end %>
+
+<% @employees.each do |emp| %>
   <div class="employee-box">
     <h3><%= link_to "#{emp.name}", employee_path(emp) %></h3>
     <%= emp.job_title %>
