@@ -6,10 +6,12 @@ class EmployeesController < ApplicationController
 
 
     def new
+        admin
         @employee = Employee.new
     end
 
     def create
+        admin
         @employee = Employee.new(employee_params)
         if @employee.save
             redirect_to employee_path(@employee)
@@ -26,10 +28,11 @@ class EmployeesController < ApplicationController
     end
 
     def edit
-
+        admin
     end
 
     def update
+        admin
         if @employee.update(employee_params)
             redirect_to employee_path(@employee)
         else
@@ -38,6 +41,7 @@ class EmployeesController < ApplicationController
     end
 
     def destroy
+        admin
         @employee.destroy
         redirect_to employees_path
     end
@@ -54,6 +58,12 @@ class EmployeesController < ApplicationController
         else
            flash[:errors] = "That employee does not work here"
            redirect_to employees_path
+        end
+     end
+
+     def admin
+        if current_user.admin == nil
+            redirect_to employee_path(current_user)
         end
      end
 
