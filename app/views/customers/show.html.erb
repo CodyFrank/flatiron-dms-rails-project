@@ -1,5 +1,7 @@
 <h3><%= @customer.name %> </h3>
   <p><%= @customer.phone_number %></p>
   <p><%= @customer.email %></p>
-<%= button_to "Delete", @customer, method: :delete, data: { confirm: "Really?" } %>
-<%= link_to "Edit", edit_customer_path(@customer) %>
+  <% if current_user == @customer || current_user.worker_number != nil %>
+    <%= button_to "Delete", @customer, method: :delete, data: { confirm: "Really?" } %>
+    <%= link_to "Edit", edit_customer_path(@customer) %>
+  <% end %>

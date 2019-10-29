@@ -1,7 +1,9 @@
 <% @customers.each do |cust| %>
   <div class="customer-box">
-    <h3><%= cust.name %></h3>
-    <%= button_to "Delete", cust, method: :delete, data: { confirm: "Really?" } %>
-    <%= link_to "Edit", edit_customer_path(cust), method: :get %>
+    <h3><%= link_to "#{cust.name}", customer_path(cust) %></h3>
+    <% if current_user == cust || current_user.worker_number != nil %>
+      <%= button_to "Delete", cust, method: :delete, data: { confirm: "Really?" } %>
+      <%= link_to "Edit", edit_customer_path(cust), method: :get %>
+    <% end %>
   <div>
 <% end %>
