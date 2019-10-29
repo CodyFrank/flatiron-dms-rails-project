@@ -4,7 +4,6 @@
 
     <% if employee? %>
       <%= button_to "Delete", @repair_order, method: :delete, data: { confirm: "Really?" } %>
-      <%= link_to "Edit", edit_repair_order_path(@repair_order) %>
     <% end %>
 
 <div>

@@ -6,7 +6,6 @@
     <%= "#{ro.vehicle.make} - #{ro.vehicle.model}" %>
     <% if employee? %>
       <%= button_to "Delete", ro, method: :delete, data: { confirm: "Really?" } %>
-      <%= link_to "Edit", edit_repair_order_path(ro) %>
     <% end %>
     </div>
   <% end %>
