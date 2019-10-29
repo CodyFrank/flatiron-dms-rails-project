@@ -3,6 +3,11 @@
     <h3><%= emp.name %></h3>
     <%= emp.job_title %>
     <%= emp.worker_number %>
-    <%= button_to "Delete", emp, method: :delete, data: { confirm: "Really?" } %>
+    <div>
+      <% if current_user.admin == true %>
+        <%= link_to "Edit", edit_employee_path(emp) %>
+        <%= button_to "Fire", emp, method: :delete, data: { confirm: "Really?" } %>
+      <% end %>
+    <div>
   <div>
 <% end %>

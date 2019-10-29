@@ -1,6 +1,9 @@
 <h3><%= @employee.name %> </h3>
   <%= @employee.job_title %>
 
-<%= button_to "Delete", @employee, method: :delete, data: { confirm: "Really?" } %>
+<% if current_user.admin == true %>
+  <%= button_to "Fire", @employee, method: :delete, data: { confirm: "Really?" } %>
+<% end %>
+
 
 
