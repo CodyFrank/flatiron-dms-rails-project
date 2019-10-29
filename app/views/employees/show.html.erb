@@ -3,6 +3,7 @@
 
 <% if current_user.admin == true %>
   <%= button_to "Fire", @employee, method: :delete, data: { confirm: "Really?" } %>
+  <%= link_to "Edit", edit_employee_path(@employee) %>
 <% end %>
 
 

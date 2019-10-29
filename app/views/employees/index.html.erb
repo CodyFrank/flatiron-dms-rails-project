@@ -1,10 +1,11 @@
 <% @employees.each do |emp| %>
   <div class="employee-box">
-    <h3><%= emp.name %></h3>
+    <h3><%= link_to "#{emp.name}", employee_path(emp) %></h3>
     <%= emp.job_title %>
     <%= emp.worker_number %>
     <div>
       <% if current_user.admin == true %>
+        <%= link_to "Hire", new_employee_path %>
         <%= link_to "Edit", edit_employee_path(emp) %>
         <%= button_to "Fire", emp, method: :delete, data: { confirm: "Really?" } %>
       <% end %>
