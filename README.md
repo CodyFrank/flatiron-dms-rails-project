@@ -1,24 +1,23 @@
-# README
+# Flatiron DMS
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A DMS made with Ruby on Rails that allows users to moniter all needed steps of vehicle repairs.
+Users can expect to 
 
-Things you may want to cover:
+* generate repair orders 
+* track repair orders
+* track work flow in a shop
 
-* Ruby version
+*note* this application is designed for both employees of a vehicle repair facility and customers of a repair facility
 
-* System dependencies
+## Deployment
+This application is currently not deployed and no plans for employement currently exist
 
-* Configuration
+## Built with
+* Ruby on Rails
+* Sqlite3 database (ActiveRecord) 
+* Omniauth / Omniauth-Facebook (Facebook Login)
+* Dotenv - rails (Environment Variable Management)
+* bcrypt ( Hashing and Salting Password)
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
