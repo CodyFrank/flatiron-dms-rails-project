@@ -55,13 +55,13 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "bcrypt", "~> 3.1"
 
-gem 'omniauth'
+gem "omniauth", "~> 1.9"
 
-gem 'omniauth-facebook'
+gem "omniauth-facebook", "~> 5.0"
 
-gem 'dotenv-rails'
+gem "dotenv-rails", "~> 2.7"
 
 gem 'omniauth-rails_csrf_protection', '~> 0.1'
 
-gem 'thin'
+gem "thin", "~> 1.7"
 
