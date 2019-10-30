@@ -38,14 +38,17 @@ class SessionsController < ApplicationController
     end
 
     def facebook_create
-      byebug
         @customer = Customer.find_or_create_by(uid: auth['uid']) do |u|
           u.name = auth['info']['name']
           u.email = auth['info']['email']
         end
-     
+       if @customer.password_digest.blank?
+          rand_pass = Sysrandom.hex(30)
+          @customer.password = rand_pass
+          @customer.password_confirmation = rand_pass
+          @customer.save
+       end
         session[:user_id] = @customer.id
-     
         redirect_to customer_path(@customer)
       end
 
