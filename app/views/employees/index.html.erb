@@ -1,7 +1,12 @@
-<% @administrators.each do |admin| %>
-    <%= admin.job_title %>
-    <%= admin.worker_number %>
-<% end %>
+ <%= link_to "Hire", new_employee_path %>
+
+<div class="employee-box">
+  <% @administrators.each do |admin| %>
+      <%= admin.name %>
+      <%= admin.job_title %>
+      <%= admin.worker_number %>
+  <% end %>
+</div>
 
 <% @employees.each do |emp| %>
   <div class="employee-box">
