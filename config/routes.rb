@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   root 'application#home'
-  get '/auth/facebook/callback' => 'sessions#facebook_create'
   resources :customers, except: [:new]
   resources :employees do
     resources :repair_orders, only: [:show, :index]
@@ -17,7 +16,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 
-
+  get '/auth/facebook/callback' => 'sessions#facebook_create'
   get '/login/employee' => 'sessions#new_employee', as: 'login_employee'
   post '/login/employee' => 'sessions#create_employee'
 
