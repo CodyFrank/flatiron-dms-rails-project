@@ -56,14 +56,6 @@ class CustomersController < ApplicationController
        end
     end
 
-    def verify_customer?
-        if current_user.worker_number == nil
-            @customer == current_user
-        else
-            return true
-        end
-    end
-
     def invalid_customer
         if !verify_customer?
             flash[:errors] = "That is not yours!"

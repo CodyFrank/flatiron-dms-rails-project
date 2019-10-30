@@ -1,6 +1,8 @@
 <p><%= button_to "Logout", logout_path, method: :delete %>
-<%= link_to "employees", employees_path %>
-<%= link_to "repair_orders", repair_orders_path %>
-<%= link_to "vehicles", vehicles_path %>
-<%= link_to "create a new repair_order", new_repair_order_path %>
-<%= link_to "customers", customers_path %></p>
+<%= link_to " employees ", employees_path %>
+<%= link_to " all repair orders ", repair_orders_path %>
+<%= link_to " vehicles ", vehicles_path %>
+<%= link_to " create a new repair order ", new_repair_order_path %>
+<%= link_to " customers ", customers_path %>
+<%= link_to " your repair orders ", employee_repair_orders_path(current_user) %></p>
+

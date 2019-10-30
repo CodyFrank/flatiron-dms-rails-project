@@ -52,12 +52,4 @@ class RepairOrdersController < ApplicationController
         ])
 
     end
-
-    def verify_customer?
-        if current_user.worker_number == nil
-            @customer == current_user
-        else
-            return true
-        end
-    end
 end

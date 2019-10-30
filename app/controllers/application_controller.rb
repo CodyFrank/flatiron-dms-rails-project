@@ -31,4 +31,12 @@ class ApplicationController < ActionController::Base
             redirect_to customer_path(current_user)
         end
     end
+
+    def verify_customer?
+        if current_user.worker_number == nil
+            @customer == current_user
+        else
+            return true
+        end
+    end
 end
