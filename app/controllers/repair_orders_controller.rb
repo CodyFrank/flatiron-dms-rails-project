@@ -1,7 +1,7 @@
 class RepairOrdersController < ApplicationController
 
     before_action :check_logged_in, except: [:index]
-    before_action :check_employee, except: [:index]
+    before_action :check_employee, except: [:index, :show]
 
     def new
         @repair_order = RepairOrder.new
@@ -26,17 +26,17 @@ class RepairOrdersController < ApplicationController
 
     def index
         if params[:employee_id]
-            @repair_orders = Employee.find(params[:employee_id]).repair_orders
+          @repair_orders = Employee.find(params[:employee_id]).repair_orders
         else
-          @repair_orders = RepairOrder.incomplete
+          @repair_orders = RepairOrder.all
         end
     end
 
     def show
-        @repair_order = RepairOrder.find(params[:id])
-        @veh = @repair_order.vehicle
-        @cust = @repair_order.vehicle.customer
-        @jobs = @repair_order.jobs
+          @repair_order = RepairOrder.find(params[:id])
+          @veh = @repair_order.vehicle
+          @cust = @repair_order.vehicle.customer
+          @jobs = @repair_order.jobs
     end
 
     def destroy
@@ -51,5 +51,13 @@ class RepairOrdersController < ApplicationController
             :concern
         ])
 
+    end
+
+    def verify_customer?
+        if current_user.worker_number == nil
+            @customer == current_user
+        else
+            return true
+        end
     end
 end
