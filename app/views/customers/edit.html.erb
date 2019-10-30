@@ -1,11 +1,5 @@
 
-<%= render partial: "form", locals: {customer: @Customer} %>
+<%= render partial: "form", locals: {customer: @customer} %>
 
 
-<% if @customer.errors.any? %>
-  <% @customer.errors.full_messages.each do |m| %>
-    <div class="errors">
-      <p><%= m %></p>
-    </div>
-  <% end %>
-<% end %>
+<%= render partial: "shared/error", locals: {model: @customer} %>

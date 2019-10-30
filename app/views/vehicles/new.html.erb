@@ -27,10 +27,4 @@
 <%= f.submit %>
 <% end %>
 
-<% if @veh.errors.any? %>
-  <% @veh.errors.full_messages.each do |m| %>
-    <div class="errors">
-      <p><%= m %></p>
-    </div>
-    <% end %>
-<% end %>
+<%= render partial: "shared/error", locals: {model: @veh} %>
