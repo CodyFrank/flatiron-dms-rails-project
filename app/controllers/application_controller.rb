@@ -13,6 +13,7 @@ class ApplicationController < ActionController::Base
     end
 
     def log_in(user)
+        byebug
         session[:user_type] = user.class
         session[:user_id] = user.id
         flash[:success] = "Welcome #{user.name}"
