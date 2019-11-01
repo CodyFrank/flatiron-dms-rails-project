@@ -1,6 +1,6 @@
 class VehiclesController < ApplicationController
     before_action :check_logged_in
-    before_action :check_employee
+    before_action :check_employee, except: [:new, :create]
     def new
         @veh = Vehicle.new
     end
