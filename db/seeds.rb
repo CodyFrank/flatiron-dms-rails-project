@@ -11,8 +11,18 @@ cust = Customer.create(name: "John", phone_number: 7775556633, email: "testing@1
 admin = Employee.create(name: "Jane", job_title: "Tester", admin: true, password: "password", password_confirmation: "password", worker_number: 1234)
 emp = Employee.create(name: "doe", job_title: "Driver", admin: false, password: "password", password_confirmation: "password", worker_number: 5678)
 
-veh = cust.vehicles.build(make: "Toyota", model: "Supra", miles: 100000, vin: "12345678910111213")
+veh = Vehicle.new(make: "Toyota", model: "Supra", miles: 100000, vin: "12345678910111213")
 
-ro = admin.repair_orders.build(vehicle: veh, finished: false, customer: cust)
+cust.vehicles << veh
+cust.save
 
-ro.jobs.build(concern: "oil change", completed: false)
+ro = RepairOrder.new(finished: false)
+ro.vehicle = veh
+ro.customer = cust
+ro.employee = admin
+ro.save
+
+job = Job.new(concern: "oil change", completed: false)
+ro.jobs << job
+
+ro.save

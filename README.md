@@ -12,7 +12,7 @@ Users can expect to
 ## Deployment
 This application is currently not deployed and no plans for employement currently exist
 
-## Usage
+## Installation
 1. To use this application fork and clone the repo from Github
 2. Run bundle install
 3. Run migrations (rake db:migrate)
