@@ -1,7 +1,12 @@
 module ApplicationHelper
 
     def employee?
-        current_user.worker_number != nil
+        if
+          current_user.worker_number == nil
+          return false
+        else
+            return true
+        end
     end
 
     def navbar
