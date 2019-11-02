@@ -13,17 +13,26 @@ class ApplicationController < ActionController::Base
     end
 
     def log_in(user)
-        session[:user_type] = user.class
-        session[:user_id] = user.id
+        class_string = user.class.to_s
+        if class_string == "Employee"
+            session[:user_type] = "e"
+            session[:user_id] = user.id
+        else
+            session[:user_type] = "c"
+            session[:user_id] = user.id
+        end
         flash[:success] = "Welcome #{user.name}"
-    end
+    end 
 
     def current_user
-        if session[:user_type] == Employee
-            emp = Employee.find_by(id: session[:user_id])
-            return emp
-        elsif session[:user_type] == Customer
-            cust = Customer.find_by(id: session[:user_id])
+        if session[:user_id]
+            if session[:user_type] == "e"
+                Employee.find_by(id: session[:user_id])
+            elsif session[:user_type] == "c"
+                Customer.find_by(id: session[:user_id])
+            else
+                nil
+            end
         end
     end
 
