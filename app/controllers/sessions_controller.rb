@@ -46,11 +46,12 @@ class SessionsController < ApplicationController
           rand_pass = Sysrandom.hex(30)
           @customer.password = rand_pass
           @customer.password_confirmation = rand_pass
-          @customer.save
        end
-        session[:user_id] = @customer.id
-        redirect_to customer_path(@customer)
-      end
+       if @customer.save
+          log_in(@customer)
+          redirect_to customer_path(@customer)
+        end
+    end
 
     private
 
