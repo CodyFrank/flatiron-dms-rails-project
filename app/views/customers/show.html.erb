@@ -2,6 +2,13 @@
   <p><%= @customer.phone_number %></p>
   <p><%= @customer.email %></p>
   <% if current_user == @customer || current_user.worker_number != nil %>
-    <%= button_to "Delete", @customer, method: :delete, data: { confirm: "Really?" } %>
-    <%= link_to "Edit", edit_customer_path(@customer) %>
+  <%= button_to "Delete", @customer, method: :delete, data: { confirm: "Really?" } %>
+  <%= link_to "Edit", edit_customer_path(@customer) %>
   <% end %>
+    <div>
+      <h4> <%= @customer.name%>'s vehicles </h4>
+      <% @customer.vehicles.each do |veh| %>
+        <p><%= veh.make %></p>
+        <p><%= veh.model %></p>
+      <% end %>
+    </div>

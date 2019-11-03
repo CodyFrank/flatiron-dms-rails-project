@@ -47,20 +47,4 @@ class CustomersController < ApplicationController
         params.require(:customer).permit(:name, :phone_number, :email, :password, :password_confirmation)
     end
 
-    def get_customer
-       if @customer = Customer.find_by(id: params[:id])
-          return @customer
-       else
-          flash[:errors] = "That customer does not exist"
-          redirect_to customers_path
-       end
-    end
-
-    def invalid_customer
-        if !verify_customer?
-            flash[:errors] = "That is not yours!"
-            redirect_to customers_path
-        end
-    end
-
 end

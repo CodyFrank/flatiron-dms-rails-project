@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root 'application#home'
-  resources :customers, except: [:new]
+  resources :customers, except: [:new] do
+    resources :vehicles, only: [:new, :edit, :create, :update]
+  end
   resources :employees do
     resources :repair_orders, only: [:show, :index]
   end
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   resources :repair_orders do
     resources :jobs, only: [:new, :edit]
   end
-  resources :vehicles, except: [:show, :edit, :update]
+  resources :vehicles, except: [:show, :new]
 
   get '/signup' => 'customers#new', as: 'signup'
 

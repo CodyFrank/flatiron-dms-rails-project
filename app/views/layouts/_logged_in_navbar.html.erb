@@ -1,4 +1,4 @@
 <p><%= button_to "Logout", logout_path, method: :delete %>
 <%= link_to "your info", customer_path(current_user) %>
-<%= link_to "in the shop now", repair_orders_path %></p>
-<%= link_to "Add a vehicle", new_vehicle_path %></p>
+<%= link_to "in the shop now", repair_orders_path %>
+<%= link_to "Add a vehicle", new_customer_vehicle_path(current_user) %></p>

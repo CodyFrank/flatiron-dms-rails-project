@@ -19,10 +19,8 @@
   <%= f.text_field :vin %>
 </div>
 
-<div class="form_box">
-  <%= f.label :Phone_Number %>
-  <%= f.number_field :phone_number %>
-</div>
+<%= f.hidden_field :customer_id %>
+
 
 <%= f.submit %>
 <% end %>

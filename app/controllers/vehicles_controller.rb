@@ -1,18 +1,31 @@
 class VehiclesController < ApplicationController
     before_action :check_logged_in
     before_action :check_employee, except: [:new, :create]
+
     def new
-        @veh = Vehicle.new
+        if params[:customer_id]
+            @customer = Customer.find_by(id: params[:customer_id])
+            @veh = @customer.vehicles.new
+        else
+            redirect_to customer_path(@customer)
+        end
     end
 
     def create
-        @veh = Vehicle.new(vehicle_params)
-        @veh.customer = Customer.find_by(phone_number: cust_params[:phone_number])
-        if @veh.save
-          redirect_to customer_path(@veh.customer)
-        else 
-            render :new
+        if vehicle_params[:customer_id] && @customer = Customer.find_by(id: vehicle_params[:customer_id])
+            @veh = @customer.vehicles.build(vehicle_params)
+            if @veh.save
+              redirect_to customer_path(@customer)
+            else 
+              render :new
+            end
         end
+    end
+
+    def edit
+    end
+
+    def update
     end
 
     def index
@@ -27,7 +40,7 @@ class VehiclesController < ApplicationController
     private
 
     def vehicle_params
-        params.require(:vehicle).permit(:make, :model, :miles, :vin)
+        params.require(:vehicle).permit(:make, :model, :miles, :vin, :customer_id)
     end
 
     def cust_params
