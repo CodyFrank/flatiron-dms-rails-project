@@ -1,5 +1,5 @@
 # Contributing
-Welcome all users interesting in improving flatiron-dms and thank you for your interest.
+Welcome all users interested in improving flatiron-dms and thank you for your interest.
 
 ## Getting Started
 1. To use this application fork and clone the repo from Github
