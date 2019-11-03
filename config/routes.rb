@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'application#home'
   resources :customers, except: [:new] do
-    resources :vehicles, only: [:new, :edit, :create, :update]
+    resources :vehicles, only: [:new, :create]
   end
   resources :employees do
     resources :repair_orders, only: [:show, :index]

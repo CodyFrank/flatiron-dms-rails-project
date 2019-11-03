@@ -22,12 +22,6 @@ class VehiclesController < ApplicationController
         end
     end
 
-    def edit
-    end
-
-    def update
-    end
-
     def index
         @vehicles = Vehicle.all
     end
