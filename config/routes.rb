@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resources :repair_orders, only: [:show, :index]
   end
   resources :jobs, except: [:new, :edit, :index, :show]
-  resources :repair_orders do
+  resources :repair_orders, except: [:edit, :update] do
     resources :jobs, only: [:new, :edit]
   end
   resources :vehicles, except: [:show, :new]
