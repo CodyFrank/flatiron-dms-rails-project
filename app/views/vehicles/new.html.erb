@@ -1,7 +1,12 @@
 <%= form_with model: @veh, local: true do |f| %>
 <div class="form_box">
   <%= f.label :make %>
-  <%= f.text_field :make %>
+  <%= f.text_field :make, list: "make_autocomplete" %>
+  <datalist id="make_autocomplete">
+    <% make_collection.each do |make| %>
+      <option value="<%=make%>">
+    <% end %>
+  </datalist>
 </div>
 
 <div class="form_box">
