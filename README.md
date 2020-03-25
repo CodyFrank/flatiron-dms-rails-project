@@ -20,7 +20,7 @@ This application is currently not deployed and no plans for employement currentl
 5. Start a server with thin gem (thin start --ssl)
 6. Open browser at https://localhost:3000/
 5. Have fun!
-*note There will be an admin employee already created to sign in use worker number 1234 and the password is password"
+*note There will be an admin employee already created to sign in use worker number 1234 and the password is password*
 
 ## Built with
 * Ruby on Rails
